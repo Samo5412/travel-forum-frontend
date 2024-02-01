@@ -1,0 +1,30 @@
+<!-- Section displaying information about the filtered destinations and the total available destinations -->
+<div class="result-info">
+  Showing {{ filteredDestinations.length }} of {{ destinations.length }} destinations
+</div>
+
+<!-- Table for listing destinations with optional delete action -->
+<table class="destinations-table">
+    <thead>
+      <tr>
+        <th>Flag</th>
+        <th>Country</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th *ngIf="showActions">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let destination of filteredDestinations" (click)="navigateTo(destination.id)">
+        <td><img [src]="destination.flag" alt="Flag"></td>
+        <td>{{ destination.country }}</td>
+        <td>{{ destination.title }}</td>
+        <td>{{ destination.author }}</td>
+        <td *ngIf="showActions" >
+          <!-- Delete icon with click event handler for deletion -->
+          <i (click)="handleDelete(destination.id, $event)" class="fas fa-trash-alt"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

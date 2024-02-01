@@ -1,0 +1,48 @@
+<!-- Form for adding a new post with validation and dynamic elements -->
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="add-post-form">
+ 
+  <!-- Author field (disabled) -->
+  <label for="Author">Author</label>
+  <input type="text" placeholder="Author" [value]="currentUser" disabled>
+
+  <!-- Title field with dynamic maximum length validation -->
+  <label for="title">Title (max {{maxTitleLength}} characters)</label>
+  <input type="text" formControlName="title" id="title" placeholder="Title" required>
+  <div *ngIf="titleCharacterCount > maxTitleLength" class="character-limit-exceeded">
+    Character limit exceeded: {{titleCharacterCount}} / {{maxTitleLength}}
+  </div>
+
+  <!-- Content field with dynamic minimum length validation -->
+  <label for="content">Content (min {{minContentLength}} characters)</label>
+  <textarea formControlName="content" id="content" placeholder="Content" required></textarea>
+  <div *ngIf="contentCharacterCount < minContentLength" class="character-limit-info">
+    Minimum characters required: {{contentCharacterCount}} / {{minContentLength}}
+  </div>
+  
+  <!-- Main Image URL field with validation -->
+  <label for="mainImage">Main Image URL</label>
+  <input type="text" formControlName="mainImage" id="mainImage" placeholder="Main Image URL" required>
+  <div *ngIf="isMainImageUrlInvalid" class="url-validation-info">
+    Please enter a valid URL.
+  </div>
+  
+  <!-- Additional Images field array with dynamic add/remove functionality -->
+  <div formArrayName="additionalImages" class="image-input-group">
+    <label>Additional Images</label>
+    <div *ngFor="let imageControl of additionalImages.controls; let i = index">
+      <input type="text" [formControlName]="i" placeholder="Additional Image URL">
+      <i type="button" (click)="removeAdditionalImage(i)" class="fas fa-trash-alt"></i>
+    </div>
+    <button type="button" (click)="addAdditionalImage()">Add Another Image</button>
+  </div>  
+
+  <!-- Country dropdown component -->
+  <app-country-dropdown (countryChange)="onCountryChange($event)"></app-country-dropdown>
+  
+  <!-- City field -->
+  <label for="city">City</label>
+  <input type="text" formControlName="city" id="city" placeholder="City" required>
+  
+  <!-- Submit button, enabled only if the form is valid -->
+  <button type="submit" [disabled]="!postForm.valid">Add Post</button>
+</form>

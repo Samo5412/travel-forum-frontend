@@ -1,0 +1,103 @@
+/* Image Slider */
+.slider-container {
+  width: 85%; 
+  margin: 20px auto;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Main Image Styling */
+.main-image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10p;
+}
+
+/* Text Overlay on Main Image */
+.image-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 5px;
+  height: 80px;
+}
+
+.thumbnail-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+}
+
+/* Thumbnail */
+.thumbnail img {
+  width: 80px;
+  height: 60px;
+  margin: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.thumbnail img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.thumbnail-wrapper {
+  display: flex;
+  justify-content: center; 
+  overflow: hidden;
+  width: 100%;
+  padding: 0 50px;
+}
+
+/* Navigation Buttons */
+.nav-button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 24px;
+  position: absolute;
+  bottom: 8px;
+  z-index: 2;
+}
+
+.prev {
+  margin-bottom: 5px;
+  left: 50px; 
+}
+
+.next {
+  margin-bottom: 5px;
+  right: 50px; 
+}
+
+.slider-container:hover .prev,
+.slider-container:hover .next {
+  display: block;
+}
+
+.link-post {
+  cursor: pointer;
+}

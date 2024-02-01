@@ -1,0 +1,74 @@
+<!-- Ensure the component selector is declared in the respective module -->
+<h1 class="post-title">{{ post?.title }}</h1>
+
+<!-- Make sure app-image-slider component is imported and declared -->
+<app-image-slider [images]="imagesUrl" [clickableImages]="false"></app-image-slider>
+
+<main class="post-container">
+  <div class="post-header">
+    <div class="country-info">
+      <div>
+        <h2>Country Information</h2>
+        <!-- Use safe navigation operator to handle null or undefined -->
+        <img [src]="country?.flag" alt="Country Flag" class="country-flag">
+        <p><strong>Name:</strong> {{ country?.name }}</p>
+        <p><strong>Native Name:</strong> {{ country?.nativeName }}</p>
+        <p><strong>Language:</strong> {{ country?.languages }}</p>
+        <p><strong>Currencies:</strong> {{ country?.currencies }}</p>
+      </div>
+      <div>
+        <p><strong>Population:</strong> {{ country?.population | number }}</p>
+        <p><strong>Region:</strong> {{ country?.region }}</p>
+        <p><strong>Sub Region:</strong> {{ country?.subregion }}</p>
+        <p><strong>Capital:</strong> {{ country?.capital }}</p>
+        <p><strong>Area:</strong> {{ country?.area  | number}}</p>
+        <p><strong>Numeric code:</strong> {{ country?.numericCode  }}</p>
+        <p><strong>Independent:</strong> {{ country?.independent }}</p>
+        <p><strong>Visited City:</strong> {{ post?.city }}</p>
+      </div>
+    </div>
+    <div class="post-meta">
+      <p><strong>Author:</strong> {{ post?.author }}</p>
+      <!-- Use 'date' pipe to format dates -->
+      <p><strong>Posted:</strong> {{ post?.createdAt | date:'mediumDate' }}</p>
+      <button class="like-button" (click)="toggleLike(post.id)">
+      {{ post?.likes?.includes(username) ? 'Unlike' : 'Like' }} ({{ post?.likes?.length || 0 }})
+      </button>
+    </div>
+    </div>
+    <div class="post-content">
+        <!-- Use 'pre-wrap' to maintain text formatting -->
+        <p style="white-space: pre-wrap;">{{ post?.content }}</p>
+    </div>
+
+    <div class="comments-section">
+      <h3>Comments:</h3>
+      <div *ngFor="let comment of post?.comments">
+      <!-- Editable Textarea for Active Comment Edit -->
+      <div *ngIf="editingCommentId === comment._id" class="edit-comment-form">
+        <textarea [(ngModel)]="tempCommentContent" rows="3"></textarea>
+        <button (click)="updateComment(post.id, comment._id, tempCommentContent)">Save</button>
+        <button *ngIf="comment.author === username" (click)="deleteComment(post.id, comment._id)">Delete</button>            
+        <button (click)="cancelEdit()">Cancel</button>
+      </div>
+    
+      <!-- Static Comment Display -->
+      <div *ngIf="editingCommentId !== comment._id" class="comment">
+        <p>{{ comment.content }}</p>
+        <p class="comment-meta">Posted by {{ comment.author }} on {{ comment.createdAt | date:'medium' }}</p>
+        <p class="comment-meta" *ngIf="comment.createdAt !== comment.updatedAt">
+          Updated by {{ comment.author }} on {{ comment.updatedAt | date:'medium' }}
+        </p>
+  
+        <!-- Show Edit Button only if the user is the author -->
+        <button *ngIf="comment.author === username" (click)="startEditComment(comment._id, comment.content)">Edit</button>
+      </div>
+    </div>
+    
+    <!-- Add Comment Form -->
+    <div class="add-comment-form">
+      <textarea [(ngModel)]="newCommentContent" placeholder="Write your comment here" rows="3" [disabled]="editingCommentId !== null"></textarea>
+      <button (click)="addComment(newCommentContent)" [disabled]="editingCommentId !== null">Post Comment</button>
+    </div>
+  </div>
+</main>

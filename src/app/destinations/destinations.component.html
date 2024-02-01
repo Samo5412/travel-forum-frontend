@@ -1,0 +1,11 @@
+<!--The necessary components for the Destinations page -->
+<h1>Find Your Next destination</h1>
+
+<!-- Image slider component -->
+<app-image-slider [images]="mainImages" [clickableImages]="true"></app-image-slider>
+
+<!-- Search component that emits search text changes -->
+<app-search (searchTextChange)="handleSearch($event)"></app-search>
+
+<!-- Destinations table component, receiving search text and destinations data as inputs -->
+<app-destinations-table [searchText]="searchText"  [destinations]="destinations"></app-destinations-table>

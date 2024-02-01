@@ -1,0 +1,208 @@
+@import url('https://use.fontawesome.com/releases/v5.1.1/css/all.css');
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #f5f5f5; 
+  }
+  
+/* Post Title Styling */
+.post-title {
+  font-family: 'Simonetta', cursive;
+  color:  #4a4a4a;
+  font-size: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+  
+/* Post Container Styling */
+.post-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  overflow: hidden;
+}
+  
+/* Country Information Styling */
+.post-container {
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 20px;
+  background-color: #f5f5f5; 
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Post Header */
+.post-header {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Country Information Styling */
+.country-info {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+}
+
+.country-info div {
+  flex: 1;
+  min-width: 250px;
+}
+
+.country-flag {
+  width: 225px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Title Styling */
+.country-info h2 {
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+
+/* Post Meta and Actions Styling */
+.post-meta {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+  
+.post-meta:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+  
+.post-meta p {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: #333;
+}
+  
+.post-meta p strong {
+  font-weight: 600;
+  color: #555;
+}
+  
+
+/* Post Content Styling */
+.post-content {
+  margin-bottom: 30px;
+  border-left: 4px solid rgb(225, 154, 67); 
+  padding-left: 20px; 
+  background: #f8f9fa; 
+  border-radius: 8px;
+  padding: 15px;
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  font-size: 18px;
+}
+  
+  /* the Post Container */
+.post-container {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; 
+  }
+
+/* the Comments Section */
+.comments-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.comment, .edit-comment-form, .add-comment-form {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.comment {
+  color: #495057;
+}
+
+.comment-meta {
+  color: #6c757d;
+  font-size: 0.85em;
+  margin-top: 10px;
+}
+
+/* Buttons */
+button {
+  background-color: rgb(225, 154, 67);
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: darken(rgb(225, 154, 67), 10%);
+}
+
+/* Textarea */
+textarea {
+  width: 97%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Edit Comment Form */
+.edit-comment-form {
+  background-color: #f8f9fa;
+}
+
+/* Add Comment Form */
+.add-comment-form textarea {
+  background-color: #f8f9fa;
+}
+
+
+/*Like button*/
+.like-button {
+  background-color: rgb(225, 154, 67);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  outline: none; 
+}
+
+.like-button:hover {
+  background-color: darken(rgb(225, 154, 67), 10%); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.like-button:active {
+  background-color: lighten(rgb(225, 154, 67), 10%); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

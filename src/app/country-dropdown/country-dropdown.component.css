@@ -1,0 +1,13 @@
+/* The dropdown menu*/
+.country-dropdown {
+  width: 321px;
+  max-height: 200px; 
+  overflow-y: auto; 
+  border: 1px solid #b3b1b1;
+  border-radius: 4px;
+  padding: 8px;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,16 @@
+
+<!-- A welcome message and a button to add new posts -->
+<h1>Welcome, {{ currentUser }}</h1>
+<button (click)="addNewPost()">Share Your Journey</button>
+
+<!-- Search component that emits search text changes -->
+<app-search (searchTextChange)="handleSearch($event)"></app-search>
+
+<!-- Destinations table component, receiving search text and destinations data as inputs. It shows a button for deleting posts -->
+<app-destinations-table 
+  [destinations]="userPosts"
+  [searchText]="searchText" 
+  [showActions]="true"
+  (onDelete)="deletePost($event)"
+  >
+</app-destinations-table>

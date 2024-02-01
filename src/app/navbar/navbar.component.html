@@ -1,0 +1,9 @@
+<!--Navigation Bar-->
+<nav>
+  <ul>
+    <li><a routerLink="/destinations" routerLinkActive="active">Destinations</a></li>
+    <li *ngIf="!isLoggedIn"><a routerLink="/login" routerLinkActive="active" >Join the Journey</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/my-destinations" routerLinkActive="active" >My Destinations</a></li>
+    <li *ngIf="isLoggedIn" (click)="logout()"><a>Logout</a></li>
+  </ul>
+</nav>

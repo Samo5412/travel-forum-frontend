@@ -1,0 +1,33 @@
+<!--The image slider -->
+<div class="slider-container">
+  <div class="main-image"  *ngIf="currentImage">
+   <!-- Conditionally render the link based on clickableImages property -->
+   <ng-container *ngIf="clickableImages; else nonClickable">
+    <div class="link-post" *ngIf="hasLink(currentImage)" (click)="navigateToPost(extractPostId(currentImage.link))">
+      <img [src]="currentImage?.url" alt="Displayed Image">
+    </div>    
+  </ng-container>
+
+    <!-- Non-clickable image template -->
+    <ng-template #nonClickable>
+      <img [src]="currentImage.url" alt="Displayed Image">
+    </ng-template>
+
+    <!-- The text displayed on the image-->
+    <div class="image-text">
+      <h3>{{ currentImage?.country }}</h3>
+      <p>{{ currentImage?.city }}</p>
+    </div>
+  </div>
+  <!-- The previous button-->
+  <button class="nav-button prev" (click)="navigateThumbnails('prev')">&#10094;</button>
+  
+  <!-- The thumbnail container -->
+  <div class="thumbnail-container">
+    <div *ngFor="let image of visibleThumbnails" class="thumbnail" (click)="changeImage(image)">
+      <img [src]="image.url" alt="Thumbnail">
+    </div>
+  </div>
+  <!-- THe next button-->
+  <button class="nav-button next" (click)="navigateThumbnails('next')">&#10095;</button>
+</div>
