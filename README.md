@@ -1,4 +1,4 @@
-# Samo2201ProjectFrontendDt190g
+# Travel Forum Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
 
